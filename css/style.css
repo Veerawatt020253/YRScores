@@ -1,0 +1,15 @@
+/* ลิงก์ฟอนต์ Mitr จาก Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&display=swap');
+
+/* ใช้ Mitr เป็นฟอนต์หลักของทั้งเว็บไซต์ */
+body {
+  font-family: 'Mitr', sans-serif !important;
+}
+
+.accent {
+  color: var(--accent) !important;
+}
+
+.accent-bg {
+  background: var(--accent);
+}
