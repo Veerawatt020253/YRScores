@@ -12,6 +12,16 @@ if ($id <= 0) {
 }
 
 $panel = new AdminPanel();
+$pdo = Database::get();
+
+// ✅ เพิ่มจำนวนยอดดู (view_count)
+try {
+    $stmt = $pdo->prepare("UPDATE matches SET view_count = COALESCE(view_count,0) + 1 WHERE id = ?");
+    $stmt->execute([$id]);
+} catch (PDOException $e) {
+    // ไม่ต้องแสดง error ต่อผู้ใช้จริง ๆ แต่จะปล่อยให้เงียบไว้
+}
+
 $match = $panel->getMatchDetails($id);
 
 if (!$match) {
@@ -29,36 +39,22 @@ if (!$match) {
     <link rel="stylesheet" href="./css/style.css">
     <style>
         :root {
-            --accent: #ef4444; /* สีแดงสดแบบทีมกีฬา */
+            --accent: #FF1493;
             --accent-light: #fee2e2;
             --dark-bg: #0f172a;
         }
-        body {
-            font-family: 'Mitr', sans-serif;
-        }
-        .accent {
-            color: var(--accent);
-        }
-        .accent-bg {
-            background-color: var(--accent);
-        }
+        body { font-family: 'Mitr', sans-serif; }
+        .accent { color: var(--accent); }
+        .accent-bg { background-color: var(--accent); }
         .hero {
             background: linear-gradient(to right, var(--dark-bg), #1e293b);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
+            color: white; padding: 3rem 0; text-align: center;
         }
-        .hero-title {
-            font-size: 2rem;
-            font-weight: 600;
-        }
+        .hero-title { font-size: 2rem; font-weight: 600; }
         .stat-box {
-            background: var(--accent-light);
-            color: var(--accent);
-            border-radius: 0.75rem;
-            padding: 1rem 1.5rem;
-            font-weight: 600;
-            display: inline-block;
+            background: var(--accent-light); color: var(--accent);
+            border-radius: 0.75rem; padding: 1rem 1.5rem;
+            font-weight: 600; display: inline-block;
         }
     </style>
 </head>
@@ -66,10 +62,10 @@ if (!$match) {
     <!-- Hero Section -->
     <div class="hero shadow-md">
         <div class="max-w-6xl mx-auto">
-            <div class="hero-title">
-                รายละเอียดการแข่งขัน
-            </div>
-            <p class="mt-2 text-gray-300">ติดตามข้อมูลแมตช์แบบเรียลไทม์กับ <span class="accent font-semibold">YRScores</span></p>
+            <div class="hero-title">รายละเอียดการแข่งขัน</div>
+            <p class="mt-2 text-gray-300">
+                ติดตามข้อมูลแมตช์แบบเรียลไทม์กับ <span class="accent font-semibold">YRScores</span>
+            </p>
         </div>
     </div>
 

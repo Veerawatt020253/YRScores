@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 10, 2025 at 04:52 PM
+-- Generation Time: Nov 11, 2025 at 12:17 AM
 -- Server version: 8.0.35
 -- PHP Version: 8.2.20
 
@@ -62,7 +62,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `sport_id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 2, 'กีฬา', '2025-11-08 06:37:23', NULL);
+(1, 2, 'กีฬา', '2025-11-08 06:37:23', NULL),
+(2, 4, 'กีฬา', '2025-11-11 00:15:27', NULL),
+(3, 3, 'กีฬา', '2025-11-11 00:15:30', NULL),
+(4, 1, 'กีฬา', '2025-11-11 00:15:34', NULL);
 
 -- --------------------------------------------------------
 
@@ -104,8 +107,10 @@ CREATE TABLE `sports` (
 --
 
 INSERT INTO `sports` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Football', '2025-11-08 06:35:44', NULL),
-(2, 'BasketBall', '2025-11-08 06:37:03', NULL);
+(1, 'ฟุตบอล', '2025-11-08 06:35:44', NULL),
+(2, 'บาสเกตบอล', '2025-11-08 06:37:03', NULL),
+(3, 'วอลเลย์บอล', '2025-11-11 00:14:57', NULL),
+(4, 'เปตอง', '2025-11-11 00:15:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -127,8 +132,10 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `sport_id`, `name`, `color_hex`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Blue', '#0033FF', '2025-11-08 06:39:22', NULL),
-(2, 2, 'Red', '#FF0000', '2025-11-08 06:45:15', NULL);
+(1, 2, 'ฟ้า', '#0033FF', '2025-11-08 06:39:22', NULL),
+(2, 2, 'แดง', '#FF0000', '2025-11-08 06:45:15', NULL),
+(3, 2, 'เขียว', '#80FF00', '2025-11-11 00:13:47', NULL),
+(4, 2, 'เหลือง', '#FFD500', '2025-11-11 00:14:09', NULL);
 
 --
 -- Indexes for dumped tables
@@ -188,25 +195,25 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `matches`
 --
 ALTER TABLE `matches`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `sports`
 --
 ALTER TABLE `sports`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
