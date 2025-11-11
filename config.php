@@ -8,7 +8,7 @@ return [
     'port' => 3306,
     'name' => 'yrscores',
     'user' => 'root',
-    'pass' => 'root',          // ใส่รหัสจริงของคุณ
+    'pass' => 'root',          // ใส่รหัสจริง
     'charset' => 'utf8mb4'
   ],
   'session' => [
@@ -20,6 +20,6 @@ return [
   'app' => [
     'brand' => 'YRScores',
     'accent' => '#FF1493',
-    'debug'  => true,
+    'debug'  => false,
   ]
 ];
