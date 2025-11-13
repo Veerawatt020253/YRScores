@@ -204,11 +204,14 @@ function badgeStatus(array $m): string
                 <h1 class="text-xl sm:text-2xl font-bold">แผงควบคุม</h1>
                 <span class="chip hidden sm:inline text-slate-700 bg-white/70">YRScores Admin</span>
             </div>
+
             <div class="flex items-center gap-3">
                 <a href="/yrscores" class="text-sm text-slate-700 hover:text-slate-900 underline"><i class="fa-solid fa-up-right-from-square"></i> ดูหน้าเว็บไซต์</a>
+                <a href="/yrscores/admin/scores_manage_api.php" class="text-sm text-slate-700 hover:text-slate-900 underline"><i class="fa-solid fa-table"></i> คะแนนทั้งหมด</a>
                 <a href="/yrscores/admin/logout.php" class="text-sm underline"><i class="fa-solid fa-right-from-bracket"></i> ออกจากระบบ</a>
             </div>
         </div>
+
     </div>
 
     <main class="max-w-6xl mx-auto px-4 py-6 space-y-8">
@@ -260,28 +263,28 @@ function badgeStatus(array $m): string
         <section class="card p-5">
             <div class="flex items-center justify-between mb-4">
                 <h2 class="text-base sm:text-lg font-semibold">เมนูการจัดการ</h2>
-                
-                    <button type="button" class="btn text-sm" id="resetButton">รีเซ็ทข้อมูลการแข่งขัน</button>
-                    <script>
-                        document.getElementById('resetButton').addEventListener('click', function() {
-                            Swal.fire({
-                                title: 'คุณแน่ใจหรือไม่?',
-                                text: "การรีเซ็ทจะลบข้อมูลการแข่งขันทั้งหมด!",
-                                icon: 'warning',
-                                showCancelButton: true,
-                                confirmButtonColor: '#3085d6',
-                                cancelButtonColor: '#d33',
-                                confirmButtonText: 'ใช่, รีเซ็ท!',
-                                cancelButtonText: 'ยกเลิก'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    // ถ้าผู้ใช้กดยืนยัน รีเซ็ทข้อมูล
-                                    document.getElementById('resetForm').submit(); // ส่งคำขอเพื่อรีเซ็ทข้อมูล
-                                }
-                            });
+
+                <button type="button" class="btn text-sm" id="resetButton">รีเซ็ทข้อมูลการแข่งขัน</button>
+                <script>
+                    document.getElementById('resetButton').addEventListener('click', function() {
+                        Swal.fire({
+                            title: 'คุณแน่ใจหรือไม่?',
+                            text: "การรีเซ็ทจะลบข้อมูลการแข่งขันทั้งหมด!",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'ใช่, รีเซ็ท!',
+                            cancelButtonText: 'ยกเลิก'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // ถ้าผู้ใช้กดยืนยัน รีเซ็ทข้อมูล
+                                document.getElementById('resetForm').submit(); // ส่งคำขอเพื่อรีเซ็ทข้อมูล
+                            }
                         });
-                    </script>
-               
+                    });
+                </script>
+
                 <a href="/yrscores/admin/match_create.php" class="btn text-sm"><i class="fa-solid fa-plus"></i> สร้างแมตช์ใหม่</a>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
