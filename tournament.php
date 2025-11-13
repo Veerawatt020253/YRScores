@@ -322,7 +322,7 @@ $qsSport = isset($_GET['sport']) ? htmlspecialchars((string)$_GET['sport'], ENT_
 
     <script>
         // ====== ค่านิ่ง ======
-        const SCORES_ENDPOINT = '/yrscores/api/get_scores_all.php';
+        const SCORES_ENDPOINT = '/yrscores/api/get_scores_all.php?range=all';
         const LIMIT_TEAMS = 5;
         const MINS_PER_MATCH = 45;
         const QS_SPORT = "<?= $qsSport ?>";
